@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Language Translator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="header">
+    <div class="brand">
+      <div class="logo" aria-hidden="true">文A</div>
+      <div>
+        <h1>AI Language Translator</h1>
+        <p>Translate text instantly with AI-powered language technology</p>
+      </div>
+    </div>
+    <button id="themeToggle" class="icon-btn" aria-label="Toggle light/dark theme" title="Toggle theme">🌓</button>
+  </header>
+
+  <main class="layout">
+    <!-- Left: source -->
+    <section class="card" aria-label="Source text">
+      <label class="field-label" for="sourceLang">From language</label>
+      <select id="sourceLang"></select>
+      <textarea id="sourceText" placeholder="Type or paste text to translate…" maxlength="5000" aria-label="Text to translate"></textarea>
+      <div class="card-footer">
+        <span id="sourceCount" class="muted">0 / 5000</span>
+        <button id="clearInput" class="btn ghost">✕ Clear</button>
+      </div>
+    </section>
+
+    <!-- Center: controls -->
+    <div class="controls">
+      <button id="swapBtn" class="icon-btn round" aria-label="Swap languages" title="Swap languages">⇄</button>
+      <button id="translateBtn" class="btn primary">
+        <span class="spinner" aria-hidden="true"></span>
+        <span class="btn-label">Translate</span>
+      </button>
+    </div>
+
+    <!-- Right: result -->
+    <section class="card" aria-label="Translation result">
+      <label class="field-label" for="targetLang">To language</label>
+      <select id="targetLang"></select>
+      <div id="resultText" class="result" aria-live="polite">Your translation will appear here.</div>
+      <div id="errorBox" class="error" role="alert" hidden></div>
+      <div class="card-footer">
+        <span id="resultCount" class="muted">0 characters</span>
+        <div class="actions">
+          <button id="copyBtn" class="btn ghost">⧉ Copy</button>
+          <button id="speakBtn" class="btn ghost">🔊 Listen</button>
+          <button id="clearResult" class="btn ghost">✕ Clear</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="history card" aria-label="Recent translations">
+    <div class="history-head">
+      <h2>Recent translations</h2>
+      <button id="clearHistory" class="btn ghost">Clear history</button>
+    </div>
+    <ul id="historyList" class="history-list"></ul>
+  </section>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
